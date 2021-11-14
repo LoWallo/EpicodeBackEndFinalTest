@@ -1,1 +1,1 @@
-# MyGit2
+# Progetto finale corso BackEnd: Epicode Energy Services
