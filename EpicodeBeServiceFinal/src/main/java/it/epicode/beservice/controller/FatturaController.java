@@ -115,7 +115,7 @@ public class FatturaController {
 	@GetMapping("/saveget")
 	public ModelAndView saveGet(@RequestParam String ragioneSociale, @DateTimeFormat(iso = ISO.DATE)
 		LocalDate data, String numero, Integer anno, Long importo, String stato) {
-		fatturaServ.saveFattura2(ragioneSociale, data, numero, anno, importo, stato);
+		fatturaServ.saveInvoice2(ragioneSociale, data, numero, anno, importo, stato);
 		return new ModelAndView("fatturasalvata");
 	}
 }
