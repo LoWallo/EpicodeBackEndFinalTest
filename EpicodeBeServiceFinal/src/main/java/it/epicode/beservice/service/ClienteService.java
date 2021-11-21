@@ -97,6 +97,16 @@ public class ClienteService {
 				fatturatoAnnuale));
 	}
 	
+	public void saveClientPopolator(String ragioneSociale, String partitaIva, TipoCliente tipoCliente, String email,
+			String pec, String telefono, String nomeContatto, String cognomeContatto, String telefonoContatto,
+			String emailContatto, Long indirizzoSedeOperativa, Long indirizzoSedeLegale, LocalDate dataInserimento,
+			LocalDate dataUltimoContatto, Long fatturatoAnnuale) {
+		clienteRepo.save(new Cliente(ragioneSociale, partitaIva, tipoCliente, email, pec, telefono, nomeContatto,
+				cognomeContatto, telefonoContatto, emailContatto, indirizzoRepo.getById(indirizzoSedeOperativa),
+				indirizzoRepo.getById(indirizzoSedeLegale), dataInserimento, dataUltimoContatto,
+				fatturatoAnnuale));
+	}
+	
 	
 	
 	
