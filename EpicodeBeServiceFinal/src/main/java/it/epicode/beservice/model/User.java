@@ -13,10 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import it.epicode.beservice.security.StringAttributeConverter;
-import it.epicode.beservice.service.RoleService;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -37,7 +34,7 @@ public class User {
 	private boolean active = true;
 	@ManyToMany
 	@JoinTable(name="user_roles",joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name="roles_id"))
-	protected Set<Role> roles = new HashSet<>();	
+	private Set<Role> roles = new HashSet<>();	
 	
 	public User(String username, String nome, String cognome, String password, String email) {
 		super();
