@@ -27,5 +27,6 @@ Per evitare problemi di dipendenze ed id non facenti capo a nulla, all'inizio il
 - salvare un/gli user a piacere (senza non si avrebbe accesso all'interfaccia web non potendo loggarsi)
 
 Tutte queste operazioni sono effettuate in automatico dai metodi presenti nella classe Popolator.java, in modo che l'applicazione sia pronta "out-of-the-box" per il lancio su server.
+
 L'utente inserito in automatico ha come Username:"admin" e come Password:"password".
 Gli utenti hanno email e password criptate per ragioni di privacy.
