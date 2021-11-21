@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import it.epicode.beservice.repo.ComuneRepository;
 import lombok.Data;
 
 @Data
@@ -22,7 +25,7 @@ public class Indirizzo {
 	private String localita;
 	@ManyToOne
 	private Comune comune;
-	
+
 	
 	public Indirizzo(String via, String civico, String cap, String localita, Comune comune) {
 		super();
