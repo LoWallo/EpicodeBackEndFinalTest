@@ -1,8 +1,10 @@
 package it.epicode.beservice.service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,8 +12,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+import it.epicode.beservice.model.ERoles;
+import it.epicode.beservice.model.Role;
 import it.epicode.beservice.model.User;
+import it.epicode.beservice.repo.RoleRepository;
 import it.epicode.beservice.repo.UserRepository;
 
 @Service
@@ -19,6 +25,10 @@ public class UserService {
 
 	@Autowired
 	UserRepository userRepo;
+	@Autowired
+	PasswordEncoder encoder;
+	@Autowired
+	RoleRepository roleRepo;
 
 	public List<User> myFindAllUsers() {
 		return userRepo.findAll();
@@ -83,5 +93,16 @@ public class UserService {
 		} else {
 			return new ArrayList<User>();
 		}
+	}
+	
+	public void saveAdminPopolator(String username, String nome, String cognome, 
+			String password, String email, Long idRole) {
+		User admin = new User(username, nome, cognome, encoder.encode(password), email);
+		Set<Role> roleSet = new HashSet<>();
+		Role userRole = roleRepo.findByRoleType(ERoles.ROLE_ADMIN)
+				.orElseThrow(() -> new RuntimeException("Errore: Role non trovato!"));
+		roleSet.add(userRole);
+		admin.setRoles(roleSet);
+		userRepo.save(admin);
 	}
 }
