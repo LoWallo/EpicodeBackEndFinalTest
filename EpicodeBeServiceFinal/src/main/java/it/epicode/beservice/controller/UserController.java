@@ -113,13 +113,13 @@ public class UserController {
 	@Autowired
 	AuthenticationManager authenticationManager;
 	@Autowired
-	UserRepository userRepository;
+	UserRepository userRepo;
 	@Autowired
 	JwtUtils jwtUtils;
 	@Autowired
 	PasswordEncoder encoder;
 	@Autowired
-	RoleRepository roleRepository;
+	RoleRepository roleRepo;
 
 	@PostMapping("/login")
 	public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
@@ -147,10 +147,10 @@ public class UserController {
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@RequestBody SignupRequest signUpRequest) {
 		// Verifica l'esistenza di Username e Email già registrate
-		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
+		if (userRepo.existsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity.badRequest().body(new SignupResponse("Errore: Username già in uso!"));
 		}
-		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+		if (userRepo.existsByEmail(signUpRequest.getEmail())) {
 			return ResponseEntity.badRequest().body(new SignupResponse("Errore: Email già in uso!"));
 		}
 		// Crea un nuovo user codificando la password
@@ -160,28 +160,29 @@ public class UserController {
 		Set<Role> roles = new HashSet<>();
 		// Verifica l'esistenza dei Role
 		if (strRoles == null) {
-			Role userRole = roleRepository.findByRoleType(ERoles.ROLE_USER)
+			Role userRole = roleRepo.findByRoleType(ERoles.ROLE_USER)
 					.orElseThrow(() -> new RuntimeException("Errore: Role non trovato!"));
 			roles.add(userRole);
 		} else {
 			strRoles.forEach(role -> {
 				switch (role) {
 				case "admin":
-					Role adminRole = roleRepository.findByRoleType(ERoles.ROLE_ADMIN)
+					Role adminRole = roleRepo.findByRoleType(ERoles.ROLE_ADMIN)
 							.orElseThrow(() -> new RuntimeException("Errore: Role non trovato!"));
 					roles.add(adminRole);
 					break;
 				default:
-					Role userRole = roleRepository.findByRoleType(ERoles.ROLE_USER)
+					Role userRole = roleRepo.findByRoleType(ERoles.ROLE_USER)
 							.orElseThrow(() -> new RuntimeException("Errore: Role non trovato!"));
 					roles.add(userRole);
 				}
 			});
 		}
 		user.setRoles(roles);
-		userRepository.save(user);
+		userRepo.save(user);
 		return ResponseEntity.ok(new SignupResponse("User registrato con successo!"));
 	}
+	
 
 	@PostMapping(value = "/loginhtml", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public ModelAndView loginHtml(LoginRequest loginRequest) {
@@ -204,11 +205,11 @@ public class UserController {
 
 	@PostMapping(value = "/signuphtml", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public ModelAndView registerUserThymeleaf(SignupRequest signUpRequest) {
-		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
+		if (userRepo.existsByUsername(signUpRequest.getUsername())) {
 			return new ModelAndView("alreadyusedusername");
 
 		}
-		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+		if (userRepo.existsByEmail(signUpRequest.getEmail())) {
 			return new ModelAndView("alreadyusedemail");
 
 		}
@@ -218,26 +219,26 @@ public class UserController {
 		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();
 		if (strRoles == null) {
-			Role userRole = roleRepository.findByRoleType(ERoles.ROLE_USER)
+			Role userRole = roleRepo.findByRoleType(ERoles.ROLE_USER)
 					.orElseThrow(() -> new RuntimeException("Errore: Role non trovato!"));
 			roles.add(userRole);
 		} else {
 			strRoles.forEach(role -> {
 				switch (role) {
 				case "admin":
-					Role adminRole = roleRepository.findByRoleType(ERoles.ROLE_ADMIN)
+					Role adminRole = roleRepo.findByRoleType(ERoles.ROLE_ADMIN)
 							.orElseThrow(() -> new RuntimeException("Errore: Role non trovato!"));
 					roles.add(adminRole);
 					break;
 				default:
-					Role userRole = roleRepository.findByRoleType(ERoles.ROLE_USER)
+					Role userRole = roleRepo.findByRoleType(ERoles.ROLE_USER)
 							.orElseThrow(() -> new RuntimeException("Errore: Role non trovato!"));
 					roles.add(userRole);
 				}
 			});
 		}
 		user.setRoles(roles);
-		userRepository.save(user);
+		userRepo.save(user);
 		return new ModelAndView("userregistered");
 
 	}
