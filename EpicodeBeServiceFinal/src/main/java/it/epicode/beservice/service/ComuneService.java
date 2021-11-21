@@ -49,7 +49,7 @@ public class ComuneService {
 	public void loadFromFile() {
 		final int INDICE_PROVINCIA = 3;
 		final int INDICE_NOME = 2;
-		final String FILE = "X:\\ISO\\Eserciziario_Java\\comuni-italiani.csv";
+		final String FILE = "src/main/resources/comuni-italiani.csv";
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(FILE));
 			String line = null;// variabile per leggere le righe del file
