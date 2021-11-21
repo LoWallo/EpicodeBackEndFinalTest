@@ -5,7 +5,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import it.epicode.beservice.model.Comune;
 import it.epicode.beservice.model.Indirizzo;
+import it.epicode.beservice.repo.ComuneRepository;
 import it.epicode.beservice.repo.IndirizzoRepository;
 
 @Service
@@ -13,6 +15,8 @@ public class IndirizzoService {
 	
 	@Autowired
 	IndirizzoRepository indirizzoRepo;
+	@Autowired
+	ComuneRepository comuneRepo;
 	
 	public Page<Indirizzo> myFindAllUsersPageable(Pageable pageable) {
 		return indirizzoRepo.findAll(pageable);
@@ -41,6 +45,11 @@ public class IndirizzoService {
 		result.setComune(i.getComune());
 		result.setLocalita(i.getLocalita());
 		result.setVia(i.getVia());
+		indirizzoRepo.save(result);
+	}
+	
+	public void saveAddressPopolator(String via, String civico, String cap, String localita, Long comune) {
+		Indirizzo result = new Indirizzo(via, civico, cap, localita, comuneRepo.getById(comune));
 		indirizzoRepo.save(result);
 	}
 }
