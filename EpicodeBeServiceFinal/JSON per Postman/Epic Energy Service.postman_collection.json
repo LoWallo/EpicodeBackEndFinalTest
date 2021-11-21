@@ -1,0 +1,675 @@
+{
+	"info": {
+		"_postman_id": "6ab8f25f-16a9-4304-9e16-832ea7afa89d",
+		"name": "Epic Energy Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Indirizzo",
+			"item": [
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"1\",\r\n    \"via\": \"Via Sottomonte\",\r\n    \"civico\": \"27\",\r\n    \"cap\": \"56025\",\r\n    \"localita\": \"Pietroconti\",\r\n    \"comune\": {\r\n        \"id\": \"52\",\r\n        \"nome\": \"Cantalupa\",\r\n        \"provincia\": {\r\n            \"id\": \"97\",\r\n            \"nome\": \"Torino\",\r\n            \"sigla\": \"TO\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{indirizzo}}update",
+							"host": [
+								"{{ls}}{{indirizzo}}update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{indirizzo}}delete?id=1",
+							"host": [
+								"{{ls}}{{indirizzo}}delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"via\": \"Via Sottomonte\",\r\n    \"civico\": \"154A\",\r\n    \"cap\": \"56025\",\r\n    \"localita\": \"Sassonero\",\r\n    \"comune\": {\r\n        \"id\": \"21\",\r\n        \"provincia\": {\r\n            \"id\": \"98\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{indirizzo}}save",
+							"host": [
+								"{{ls}}{{indirizzo}}save"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comune",
+			"item": [
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Aaren\",\r\n    \"provincia\":{\r\n            \"id\":\"97\",\r\n            \"nome\":\"Torino\",\r\n            \"sigla\":\"TO\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{comune}}save",
+							"host": [
+								"{{ls}}{{comune}}save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"7905\",\r\n    \"nome\": \"Zubizarreta\",\r\n    \"provincia\": {\r\n        \"id\": \"97\",\r\n        \"nome\": \"Torino\",\r\n        \"sigla\": \"TO\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{comune}}update",
+							"host": [
+								"{{ls}}{{comune}}update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{comune}}delete?id=7905",
+							"host": [
+								"{{ls}}{{comune}}delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7905"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Provincia",
+			"item": [
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"papaya\",\r\n    \"sigla\":\"9502\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{provincia}}save",
+							"host": [
+								"{{ls}}{{provincia}}save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{provincia}}delete?id=112",
+							"host": [
+								"{{ls}}{{provincia}}delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "112"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"112\",\r\n    \"nome\":\"fiodo\",\r\n    \"sigla\":\"95cb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{provincia}}update",
+							"host": [
+								"{{ls}}{{provincia}}update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ragioneSociale\": \"siuuu Inc.\",\r\n    \"partitaIva\": \"654649846846\",\r\n    \"tipoCliente\": \"SPA\",\r\n    \"email\": \"siuuu@faro.fr\",\r\n    \"pec\": \"siuuupec@faro.fr\",\r\n    \"telefono\": \"058754359\",\r\n    \"nomeContatto\": \"Mario\",\r\n    \"cognomeContatto\": \"Ondini\",\r\n    \"telefonoContatto\": \"050125125\",\r\n    \"emailContatto\": \"mpanta@faro.fr\",\r\n    \"indirizzoSedeOperativa\": {\r\n        \"id\": \"1\",\r\n        \"comune\": {\r\n            \"id\": \"21\",\r\n            \"provincia\": {\r\n                \"id\": \"98\"\r\n            }\r\n        }\r\n    },\r\n    \"indirizzoSedeLegale\": {\r\n        \"id\": \"2\",\r\n        \"comune\": {\r\n            \"id\": \"52\",\r\n            \"provincia\": {\r\n                \"id\": \"98\"\r\n            }\r\n        }\r\n    },\r\n    \"dataInserimento\": \"2015-06-25\",\r\n    \"dataUltimoContatto\": \"2020-04-11\",\r\n    \"fatturatoAnnuale\": \"30000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{cliente}}saveclient",
+							"host": [
+								"{{ls}}{{cliente}}saveclient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"2\",\r\n    \"ragioneSociale\":\"Farlocchi Inc.\",\r\n    \"partitaIva\":\"06581590250\",\r\n    \"tipoCliente\":\"SPA\",\r\n    \"email\":\"zubiza@faro.fr\",\r\n    \"pec\":\"zubizapec@faro.fr\",\r\n    \"telefono\":\"058754359\",\r\n    \"nomeContatto\":\"Paolo\",\r\n    \"cognomeContatto\":\"Pantalone\",\r\n    \"telefonoContatto\":\"050125125\",\r\n    \"emailContatto\":\"mpanta@faro.fr\",\r\n    \"indirizzoSedeOperativa\":{\r\n        \"id\":\"1\",\r\n        \"via\":\"Via Sottomonte\",\r\n        \"civico\":\"154\",\r\n        \"cap\":\"56025\",\r\n        \"localita\":\"Sassonero\",\r\n        \"comune\":{\r\n            \"id\":\"21\",\r\n            \"nome\":\"Bardonecchia\",\r\n            \"provincia\":{\r\n                \"id\":\"98\",\r\n                \"nome\":\"Torino\",\r\n                \"sigla\":\"TO\"\r\n            }\r\n        }\r\n    },\r\n    \"indirizzoSedeLegale\":{\r\n        \"id\":\"2\",\r\n        \"via\":\"Via Pisana\",\r\n        \"civico\":\"22\",\r\n        \"cap\":\"56025\",\r\n        \"localita\":\"Pietroconti\",\r\n        \"comune\":{\r\n            \"id\":\"32\",\r\n            \"nome\":\"Bosconero\",\r\n            \"provincia\":{\r\n                \"id\":\"98\",\r\n                \"nome\":\"Torino\",\r\n                \"sigla\":\"TO\"\r\n            }\r\n        }\r\n    },\r\n    \"dataInserimento\":\"2018-06-25\",\r\n    \"dataUltimoContatto\":\"2021-04-11\",\r\n    \"fatturatoAnnuale\":\"2500000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{cliente}}updatecliente",
+							"host": [
+								"{{ls}}{{cliente}}updatecliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{cliente}}deleteclient?id=4",
+							"host": [
+								"{{ls}}{{cliente}}deleteclient"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SortByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{cliente}}clientssortedbyname",
+							"host": [
+								"{{ls}}{{cliente}}clientssortedbyname"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SortByEarnings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{cliente}}clientssortedbyearnings",
+							"host": [
+								"{{ls}}{{cliente}}clientssortedbyearnings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SortByEntryDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{cliente}}clientssortedbyentrydate",
+							"host": [
+								"{{ls}}{{cliente}}clientssortedbyentrydate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SortByLastContactDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{cliente}}clientssortedbylastcontactdate",
+							"host": [
+								"{{ls}}{{cliente}}clientssortedbylastcontactdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByEarnings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{cliente}}findbyearnings?l=7000",
+							"host": [
+								"{{ls}}{{cliente}}findbyearnings"
+							],
+							"query": [
+								{
+									"key": "l",
+									"value": "7000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByEntryDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{cliente}}findbyentrydate?l=2015-06-25",
+							"host": [
+								"{{ls}}{{cliente}}findbyentrydate"
+							],
+							"query": [
+								{
+									"key": "l",
+									"value": "2015-06-25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByLastAccessDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{cliente}}findbylastaccessdate?l=2020-04-11",
+							"host": [
+								"{{ls}}{{cliente}}findbylastaccessdate"
+							],
+							"query": [
+								{
+									"key": "l",
+									"value": "2020-04-11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByPartialName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{cliente}}findbypartialname?s=iu",
+							"host": [
+								"{{ls}}{{cliente}}findbypartialname"
+							],
+							"query": [
+								{
+									"key": "s",
+									"value": "iu"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fattura",
+			"item": [
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cliente\": {\r\n        \"id\": \"8\",\r\n        \"ragioneSociale\": \"siuuu Inc.\",\r\n        \"partitaIva\": \"654649846846\",\r\n        \"tipoCliente\": \"SPA\",\r\n        \"email\": \"siuuu@faro.fr\",\r\n        \"pec\": \"siuuupec@faro.fr\",\r\n        \"telefono\": \"058754359\",\r\n        \"nomeContatto\": \"Mario\",\r\n        \"cognomeContatto\": \"Ondini\",\r\n        \"telefonoContatto\": \"050125125\",\r\n        \"emailContatto\": \"mpanta@faro.fr\",\r\n        \"indirizzoSedeOperativa\": {\r\n            \"id\": \"1\",\r\n            \"via\": \"Via Sottomonte\",\r\n            \"civico\": \"154\",\r\n            \"cap\": \"56025\",\r\n            \"localita\": \"Sassonero\",\r\n            \"comune\": {\r\n                \"id\": \"21\",\r\n                \"nome\": \"Bardonecchia\",\r\n                \"provincia\": {\r\n                    \"id\": \"98\",\r\n                    \"nome\": \"Torino\",\r\n                    \"sigla\": \"TO\"\r\n                }\r\n            }\r\n        },\r\n        \"indirizzoSedeLegale\": {\r\n            \"id\": \"2\",\r\n            \"via\": \"Via Pisana\",\r\n            \"civico\": \"27\",\r\n            \"cap\": \"56025\",\r\n            \"localita\": \"Pietroconti\",\r\n            \"comune\": {\r\n                \"id\": \"52\",\r\n                \"nome\": \"Cantalupa\",\r\n                \"provincia\": {\r\n                    \"id\": \"97\",\r\n                    \"nome\": \"Torino\",\r\n                    \"sigla\": \"TO\"\r\n                }\r\n            }\r\n        },\r\n        \"dataInserimento\": \"2015-06-25\",\r\n        \"dataUltimoContatto\": \"2020-04-11\",\r\n        \"fatturatoAnnuale\": \"30000000\"\r\n    },\r\n    \"data\":\"2019-04-09\",\r\n    \"numero\":\"382\",\r\n    \"anno\":\"2019\",\r\n    \"importo\":\"90000\",\r\n    \"stato\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"pagata\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{fattura}}save",
+							"host": [
+								"{{ls}}{{fattura}}save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"1\",\r\n    \"cliente\": {\r\n        \"id\": \"8\",\r\n        \"ragioneSociale\": \"siuuu Inc.\",\r\n        \"partitaIva\": \"654649846846\",\r\n        \"tipoCliente\": \"SPA\",\r\n        \"email\": \"siuuu@faro.fr\",\r\n        \"pec\": \"siuuupec@faro.fr\",\r\n        \"telefono\": \"058754359\",\r\n        \"nomeContatto\": \"Mario\",\r\n        \"cognomeContatto\": \"Ondini\",\r\n        \"telefonoContatto\": \"050125125\",\r\n        \"emailContatto\": \"mpanta@faro.fr\",\r\n        \"indirizzoSedeOperativa\": {\r\n            \"id\": \"1\",\r\n            \"via\": \"Via Sottomonte\",\r\n            \"civico\": \"154\",\r\n            \"cap\": \"56025\",\r\n            \"localita\": \"Sassonero\",\r\n            \"comune\": {\r\n                \"id\": \"21\",\r\n                \"nome\": \"Bardonecchia\",\r\n                \"provincia\": {\r\n                    \"id\": \"98\",\r\n                    \"nome\": \"Torino\",\r\n                    \"sigla\": \"TO\"\r\n                }\r\n            }\r\n        },\r\n        \"indirizzoSedeLegale\": {\r\n            \"id\": \"2\",\r\n            \"via\": \"Via Pisana\",\r\n            \"civico\": \"27\",\r\n            \"cap\": \"56025\",\r\n            \"localita\": \"Pietroconti\",\r\n            \"comune\": {\r\n                \"id\": \"52\",\r\n                \"nome\": \"Cantalupa\",\r\n                \"provincia\": {\r\n                    \"id\": \"97\",\r\n                    \"nome\": \"Torino\",\r\n                    \"sigla\": \"TO\"\r\n                }\r\n            }\r\n        },\r\n        \"dataInserimento\": \"2015-06-25\",\r\n        \"dataUltimoContatto\": \"2020-04-11\",\r\n        \"fatturatoAnnuale\": \"30000000\"\r\n    },\r\n    \"data\":\"2020-06-09\",\r\n    \"numero\":\"658\",\r\n    \"anno\":\"2020\",\r\n    \"importo\":\"60000\",\r\n    \"stato\":{\r\n        \"id\":\"1\",\r\n        \"nome\":\"pagata\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{fattura}}update",
+							"host": [
+								"{{ls}}{{fattura}}update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{fattura}}delete?id=9",
+							"host": [
+								"{{ls}}{{fattura}}delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByCliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{fattura}}findbyclient?id=5",
+							"host": [
+								"{{ls}}{{fattura}}findbyclient"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByImporto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{fattura}}findbyamount?v1=30000&v2=50000",
+							"host": [
+								"{{ls}}{{fattura}}findbyamount"
+							],
+							"query": [
+								{
+									"key": "v1",
+									"value": "30000"
+								},
+								{
+									"key": "v2",
+									"value": "50000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByStato",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{fattura}}findbystato?stato=pagata",
+							"host": [
+								"{{ls}}{{fattura}}findbystato"
+							],
+							"query": [
+								{
+									"key": "stato",
+									"value": "pagata"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByData",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{fattura}}findbydate?date=2021-04-30",
+							"host": [
+								"{{ls}}{{fattura}}findbydate"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2021-04-30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindByAnno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{fattura}}findbyyear?anno=2020",
+							"host": [
+								"{{ls}}{{fattura}}findbyyear"
+							],
+							"query": [
+								{
+									"key": "anno",
+									"value": "2020"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"pio\",\r\n    \"email\": \"pio@gmail.com\",\r\n    \"password\": \"papaya\",\r\n    \"nome\": \"p\",\r\n    \"cognome\": \"bibo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{utente}}signup",
+							"host": [
+								"{{ls}}{{utente}}signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LogIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"pio\",\r\n    \"password\": \"papaya\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ls}}{{utente}}login",
+							"host": [
+								"{{ls}}{{utente}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ls}}{{utente}}deletebyid?id=1",
+							"host": [
+								"{{ls}}{{utente}}deletebyid"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
