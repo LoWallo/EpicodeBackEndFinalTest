@@ -11,7 +11,7 @@ Il frontend permette l'accesso alle funzioni CRUD e di ricerca.
 
 
 
-========================================================================================
+===========================================================================
 
 Il progetto gestisce il database secondo la modalità CREATE, nel caso si volesse utilizzare la modalità UPDATE basta avere l'accortezza di commentare i metodi presenti nella classe Popolator, nel package it.epicode.beservice, onde evitare il nuovo inserimento ad ogni restart del progetto di dati già presenti e problemi di duplicazioni.
 
