@@ -14,13 +14,18 @@ Il frontend permette l'accesso alle funzioni CRUD e di ricerca.
 ===========================================================================
 
 La porta utilizzata è quella di default, ovvero la 8080.
+Per adattare il progetto in base alla macchina e far sì che possa comunicare con il database presente in locale, modificare il file application.properties secondo necessità.
+
 Il progetto gestisce il database secondo la modalità CREATE, nel caso si volesse utilizzare la modalità UPDATE basta avere l'accortezza di commentare i metodi presenti nella classe Popolator, nel package it.epicode.beservice, onde evitare il nuovo inserimento ad ogni restart del progetto di dati già presenti e problemi di duplicazioni.
 
 Per evitare problemi di dipendenze ed id non facenti capo a nulla, all'inizio il miglior percorso da seguire secondo me è:
 - salvare liste comuni e province (importati automaticamente dai file .csv)
-- salvare gli stati fattura e i ruoli utente (salvati in database ad ogni avvio dell'applicazione tramite metodi in Popolator.java)
-- salvare gli indirizzi (nella collezione postman ci sono appunto 4 metodi save precompilati ma possono essere modificati a piacere)
+- salvare gli indirizzi (senza le classi precedenti non sarebbe stato possibile)
+- salvare gli stati fattura e i ruoli utente
 - salvare i clienti a piacere (senza le classi precedenti non sarebbe stato possibile) 
 - salvare le fatture a piacere (senza le classi precedenti non sarebbe stato possibile) 
+- salvare un/gli user a piacere (senza non si avrebbe accesso all'interfaccia web non potendo loggarsi)
 
-- salvare gli user a piacere (può essere fatto in qualsiasi momento)
+Tutte queste operazioni sono effettuate in automatico dai metodi presenti nella classe Popolator.java, in modo che l'applicazione sia pronta "out-of-the-box" per il lancio su server.
+L'utente inserito in automatico ha come Username:"admin" e come Password:"password".
+Gli utenti hanno email e password criptate per ragioni di privacy.
