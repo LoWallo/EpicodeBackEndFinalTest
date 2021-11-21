@@ -31,9 +31,15 @@ public class FatturaService {
 		fatturaRepo.save(f);
 	}
 	
-	public void saveFattura2(String ragioneSociale, LocalDate data, String numero, Integer anno,
+	public void saveInvoice2(String ragioneSociale, LocalDate data, String numero, Integer anno,
 			Long importo, String stato) {
 		fatturaRepo.save(new Fattura(clienteRepo.findByRagioneSociale(ragioneSociale),
+				data,numero,anno,importo,statoFattServ.findByNome(stato)));
+	}
+	
+	public void saveInvoicePopolator(Long idCliente, LocalDate data, String numero, Integer anno,
+			Long importo, String stato) {
+		fatturaRepo.save(new Fattura(clienteRepo.getById(idCliente),
 				data,numero,anno,importo,statoFattServ.findByNome(stato)));
 	}
 
