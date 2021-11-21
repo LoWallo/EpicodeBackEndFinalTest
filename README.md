@@ -31,4 +31,4 @@ Tutte queste operazioni sono effettuate in automatico dai metodi presenti nella 
 L'utente inserito in automatico ha come Username:"admin" e come Password:"password".
 Gli utenti hanno email e password criptate per ragioni di privacy.
 
-Nella cartella JSON per Postman sono presenti i file .json da importare in Postman per eseguire le chiamate HTTP al server, un file contiene la Collection di chiamate mentre l'altro contiene l'Environment dove sono le environment variables utilizzate nelle chiamate.
+Nella cartella "JSON per Postman" sono presenti i file .json da importare in Postman per eseguire le chiamate HTTP al server, un file contiene la Collection di chiamate mentre l'altro contiene l'Environment dove sono le environment variables utilizzate nelle chiamate.
