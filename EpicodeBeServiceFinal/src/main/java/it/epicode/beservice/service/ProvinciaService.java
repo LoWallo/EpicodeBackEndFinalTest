@@ -43,7 +43,7 @@ public class ProvinciaService {
 	public void loadFromFile() {
 		final int INDICE_SIGLA = 0;
 		final int INDICE_NOME = 1;
-		final String FILE = "X:\\ISO\\Eserciziario_Java\\province-italiane.csv";
+		final String FILE = "src/main/resources/province-italiane.csv";
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(FILE));
 			String line = null;// variabile per leggere le righe del file
